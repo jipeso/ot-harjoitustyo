@@ -1,0 +1,31 @@
+commit 4d4b101a00d83b11f6553f49f99a31e4c2dc8099
+Author: jipeso <jipesonen@gmail.com>
+Date:   Tue Mar 19 20:54:00 2024 +0200
+
+    harjoittelua tehtävän toinen commit
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 09c5baff62142a91f503189bfe2cdb52a97f4228
+Author: jipeso <jipesonen@gmail.com>
+Date:   Tue Mar 19 20:49:08 2024 +0200
+
+    harjoittelua tehtävä 1 osa
+
+ laskarit/viikko1/gitlog.txt      | 0
+ laskarit/viikko1/komentorivi.txt | 3 +++
+ tiedostoja/file1                 | 0
+ tiedostoja/file2                 | 0
+ tiedostoja/file3                 | 0
+ 5 files changed, 3 insertions(+)
+
+commit ded52b2f6a2c441cc68cecd192c0c2015555dd6e
+Author: jipeso <jipesonen@gmail.com>
+Date:   Mon Mar 18 18:34:13 2024 +0200
+
+    initial commit
+
+ README.md | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
