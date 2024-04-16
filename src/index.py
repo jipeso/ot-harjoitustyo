@@ -16,9 +16,8 @@ def main():
 
     display = pygame.display.set_mode((display_width, display_height))
     pygame.display.set_caption("Physics Simulator")
-    
-    container = Container(display_width, display_height)
 
+    container = Container(display_width, display_height)
 
     event_queue = EventQueue()
     simulation = Simulation(SIMULATION_1_PARTICLES, container)
@@ -26,12 +25,9 @@ def main():
     clock = Clock()
     game_loop = GameLoop(simulation, renderer, event_queue, clock)
 
-
     pygame.init()
     game_loop.start()
-    
+
 
 if __name__ == "__main__":
     main()
-
-

@@ -4,16 +4,13 @@ Sovelluksen avulla käyttäjän on mahdollista asettaa systeemille haluamansa pa
 
 ## Dokumentaatio
 
-[gitlog.txt](https://github.com/jipeso/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/jipeso/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
-
 [vaatimusmaarittely.md](https://github.com/jipeso/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
 [tuntikirjanpito.md](https://github.com/jipeso/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 
 [changelog.md](https://github.com/jipeso/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
 
+[arkkitehtuuri.md](https://github.com/jipeso/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 
 ## Asennus
 
@@ -47,4 +44,11 @@ Testikattavuusraportin voi luoda komennolla:
 
 ```bash
 poetry run invoke coverage-report
+```
+### Pylint
+
+Tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset voi suorittaa komennolla:
+
+```bash
+poetry run invoke lint
 ```
