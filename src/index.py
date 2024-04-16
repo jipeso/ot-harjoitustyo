@@ -8,6 +8,7 @@ from sprites.container import Container
 
 
 SIMULATION_1_PARTICLES = 10
+SIMULATION_2_PARTICLES = 50
 
 
 def main():

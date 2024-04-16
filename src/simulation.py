@@ -53,13 +53,13 @@ class Simulation:
                 if particle1 == particle2 or not pygame.sprite.collide_circle(particle1, particle2):
                     continue
                 # Laske suuntavektori
-                _dx = particle1.x - particle2.x  # pylint: disable=invalid-name
-                _dy = particle1.y - particle2.y  # pylint: disable=invalid-name
+                _dx = particle1.x_coord - particle2.x_coord
+                _dy = particle1.y_coord - particle2.y_coord
                 distance = math.sqrt(_dx * _dx + _dy * _dy)
 
                 # Normalisoi suuntavektori
-                _dx /= distance  # pylint: disable=invalid-name
-                _dy /= distance  # pylint: disable=invalid-name
+                _dx /= distance
+                _dy /= distance
 
                 # Laske suhteellinen nopeus
                 relative_velocity = [particle1.velocity[0] - particle2.velocity[0],
