@@ -1,7 +1,7 @@
 ## Viikko 3
 
 - Ensimmäinen versio simulaatiosta luotu
-- Hiukkasteen törmääminen suljetussa systeemissä
+- Hiukkasten törmääminen suljetussa systeemissä
 
 ## Viikko 4
 

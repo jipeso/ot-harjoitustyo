@@ -2,12 +2,11 @@ import pygame
 import random
 import math
 from sprites.particle import Particle
-from sprites.container import Container
 
 
 class Simulation:
     def __init__(self, particle_count, container):
-        self.container = pygame.sprite.Group(container)
+        self.container = container
         self.particles = pygame.sprite.Group()
         self.all_sprites = pygame.sprite.Group()
 
@@ -17,32 +16,33 @@ class Simulation:
         self.all_sprites.add(self.container)
 
     def move_particles(self):
-        container = next(iter(self.container))
-        thickness = container.thickness
-
+        thickness = self.container.thickness
 
         for particle in self.particles:
             particle.update()
 
-            if particle.rect.left <= container.rect.left + thickness and particle.velocity[0] < 0:
+            #generoitu koodi alkaa
+            if particle.rect.left <= self.container.rect.left + thickness and particle.velocity[0] < 0:
                 particle.velocity[0] *= -1
-                particle.rect.left = container.rect.left + thickness
-            elif particle.rect.right >= container.rect.right - thickness and particle.velocity[0] > 0:
+                particle.rect.left = self.container.rect.left + thickness
+            elif particle.rect.right >= self.container.rect.right - thickness and particle.velocity[0] > 0:
                 particle.velocity[0] *= -1
-                particle.rect.right = container.rect.right - thickness
+                particle.rect.right = self.container.rect.right - thickness
 
-            if particle.rect.top <= container.rect.top + thickness and particle.velocity[1] < 0:
+            if particle.rect.top <= self.container.rect.top + thickness and particle.velocity[1] < 0:
                 particle.velocity[1] *= -1
-                particle.rect.top = container.rect.top + thickness
-            elif particle.rect.bottom >= container.rect.bottom - thickness and particle.velocity[1] > 0:
+                particle.rect.top = self.container.rect.top + thickness
+            elif particle.rect.bottom >= self.container.rect.bottom - thickness and particle.velocity[1] > 0:
                 particle.velocity[1] *= -1
-                particle.rect.bottom = container.rect.bottom - thickness
+                particle.rect.bottom = self.container.rect.bottom - thickness
+            #generoitu koodi päättyy
 
     def update(self):
         self.move_particles()
         self.handle_collisions()
         self.all_sprites.update()
 
+    #generoitu koodi alkaa
     def handle_collisions(self):
         for particle1 in self.particles:
             for particle2 in self.particles:
@@ -72,6 +72,7 @@ class Simulation:
                     particle1.velocity[1] -= impulse * particle2.mass * dy
                     particle2.velocity[0] += impulse * particle1.mass * dx
                     particle2.velocity[1] += impulse * particle1.mass * dy
+    #generoitu koodi päättyy
 
     def add_particle(self):
         red = (255, 0, 0)
