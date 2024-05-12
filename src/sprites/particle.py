@@ -1,23 +1,39 @@
 import pygame
+import pymunk
 
+class Particle:
+    def __init__(
+            self,
+            mass,
+            moment,
+            center,
+            velocity,
+            color,
+            radius,
+            elasticity,
+            friction,
+        ):
 
-class Particle(pygame.sprite.Sprite):
-    def __init__(self, color, radius, x_coord, y_coord, velocity, mass=1):
-        super().__init__()
+        self.body = pymunk.Body(mass=mass, moment=moment, body_type=pymunk.Body.DYNAMIC)
+        self.body.position = center
+        self.body.velocity = velocity
         self.color = color
         self.radius = radius
-        self.x_coord = x_coord
-        self.y_coord = y_coord
-        self.velocity = velocity
-        self.mass = mass
+        self.shape = pymunk.Circle(body=self.body, radius=self.radius)
+        self.shape.elasticity = elasticity
+        self.shape.friction = friction
 
-        self.image = pygame.Surface((radius * 2, radius * 2))
-        pygame.draw.circle(self.image, color, (radius, radius), radius)
+    def out_of_bounds(self, display_width, display_height):
+        x, y = self.body.position
+        return x + self.radius // 2 > display_width or x - self.radius // 2 < 0 \
+            or y + self.radius // 2 > display_height or y - self.radius // 2 < 0
 
-        self.rect = self.image.get_rect(center=(x_coord, y_coord))
 
-    def update(self):
-        self.x_coord += self.velocity[0]
-        self.y_coord += self.velocity[1]
+    def draw(self, display):
 
-        self.rect.center = (self.x_coord, self.y_coord)
+        pygame.draw.circle(
+            surface=display,
+            color=self.color,
+            center=self.body.position,
+            radius=self.radius
+        )

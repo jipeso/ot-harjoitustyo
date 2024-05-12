@@ -10,6 +10,7 @@ python = "^3.8"
 pygame = "^2.5.2"
 pygame-menu = "^4.4.3"
 invoke = "^2.2.0"
+pymunk = "^6.7.0"
 
 
 [tool.poetry.group.dev.dependencies]

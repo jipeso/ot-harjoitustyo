@@ -1,23 +1,25 @@
 ```mermaid
 classDiagram
-    GameLoop "1" -- "1" Simulation
-    EventQueue "1" -- "1" GameLoop
     Particle "*" -- "1" Simulation
+    Segment "*" -- "1" Simulation
 
     class Simulation{
-        update()
-        move_particles()
-        handle_collisions()
+        run_simulation()
+        render()
+        handle_events()
+        create_particle()
+        create_segment()
     }
     class Particle{
-        x
-        y
+        mass
+        moment
         velocity
+        radius
+        elasticity
+        friction
     }
-    class GameLoop{
-        start()
-        handle_events()
-    }
-    class EventQueue{
-        get()
+    class Segment{
+        start
+        end
+        radius
     }
